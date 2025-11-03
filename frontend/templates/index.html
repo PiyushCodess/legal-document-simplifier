@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Document Simplifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-balance-scale"></i>
+                    <h1>Legal Document Simplifier</h1>
+                </div>
+                <p class="tagline">Understand complex legal documents in plain English</p>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-upload"></i> Upload Document</h3>
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop or click to upload</p>
+                        <span class="file-types">PDF, DOCX, TXT</span>
+                        <input type="file" id="fileInput" accept=".pdf,.docx,.txt" hidden>
+                    </div>
+                    <input type="text" id="docName" placeholder="Document name (optional)" class="input-field">
+                </div>
+
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-folder-open"></i> Loaded Documents</h3>
+                    <div id="documentList" class="document-list">
+                        <p class="empty-state">No documents loaded yet</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-tools"></i> Actions</h3>
+                    <button class="btn btn-primary" onclick="analyzeDocument()">
+                        <i class="fas fa-search"></i> Analyze Document
+                    </button>
+                    <button class="btn btn-warning" onclick="getConcerns()">
+                        <i class="fas fa-exclamation-triangle"></i> Find Concerns
+                    </button>
+                    <button class="btn btn-info" onclick="compareDocuments()">
+                        <i class="fas fa-columns"></i> Compare Documents
+                    </button>
+                    <button class="btn btn-success" onclick="savePDF()">
+                        <i class="fas fa-file-pdf"></i> Save as PDF
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearChat()">
+                        <i class="fas fa-trash"></i> Clear Chat
+                    </button>
+                </div>
+            </aside>
+
+            <main class="main-panel">
+                <div class="results-area" id="resultsArea">
+                    <div class="welcome-message">
+                        <i class="fas fa-gavel"></i>
+                        <h2>Welcome to Legal Document Simplifier</h2>
+                        <p>Upload a legal document to get started. I'll help you understand complex legal jargon in simple terms.</p>
+                        <div class="features">
+                            <div class="feature">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Upload & Analyze</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Find Risks</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-balance-scale-right"></i>
+                                <span>Compare Docs</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-download"></i>
+                                <span>Export PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-area">
+                    <div class="chat-messages" id="chatMessages">
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" placeholder="Ask a question about your document..." class="chat-input">
+                        <button class="btn-send" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
