@@ -1,4 +1,4 @@
-# Legal Document Simplifier
+# Legal Document Simplifier(LawSimplify)
 
 AI-powered web application that converts complex legal documents into simple, easy-to-understand language.
 
