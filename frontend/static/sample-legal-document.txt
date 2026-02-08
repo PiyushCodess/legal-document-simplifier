@@ -1,0 +1,20 @@
+NON-DISCLOSURE AGREEMENT (NDA)
+
+This Non-Disclosure Agreement (the "Agreement") is entered into by and between [Party A] and [Party B] as of [Date].
+
+1. Confidential Information
+   Both parties agree to keep confidential all information disclosed by the other party that is marked as confidential or that should reasonably be understood to be confidential.
+
+2. Obligations
+   The receiving party shall not disclose the Confidential Information to any third party without the prior written consent of the disclosing party.
+
+3. Term
+   This Agreement shall remain in effect for a period of [Number] years from the date hereof.
+
+4. Governing Law
+   This Agreement shall be governed by and construed in accordance with the laws of [State/Country].
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first above written.
+
+[Party A Signature]
+[Party B Signature]
