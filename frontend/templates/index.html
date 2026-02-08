@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <header class="header">
@@ -30,6 +32,13 @@
                         <input type="file" id="fileInput" accept=".pdf,.docx,.txt" hidden>
                     </div>
                     <input type="text" id="docName" placeholder="Document name (optional)" class="input-field">
+                    <div style="margin-top: 10px; text-align: center;">
+                        <a href="{{ url_for('static', filename='sample-legal-document.txt') }}"
+                            download="sample-legal-document.txt"
+                            style="color: #007bff; text-decoration: none; font-size: 0.9em;">
+                            <i class="fas fa-file-alt"></i> Download Sample Document
+                        </a>
+                    </div>
                 </div>
 
                 <div class="sidebar-section">
@@ -64,7 +73,8 @@
                     <div class="welcome-message">
                         <i class="fas fa-gavel"></i>
                         <h2>Welcome to LawSimplify</h2>
-                        <p>Upload a legal document to get started. I'll help you understand complex legal jargon in simple terms.</p>
+                        <p>Upload a legal document to get started. I'll help you understand complex legal jargon in
+                            simple terms.</p>
                         <div class="features">
                             <div class="feature">
                                 <i class="fas fa-file-alt"></i>
@@ -90,7 +100,8 @@
                     <div class="chat-messages" id="chatMessages">
                     </div>
                     <div class="chat-input-container">
-                        <input type="text" id="chatInput" placeholder="Ask a question about your document..." class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Ask a question about your document..."
+                            class="chat-input">
                         <button class="btn-send" onclick="sendMessage()">
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -109,4 +120,5 @@
 
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
+
 </html>
