@@ -1,7 +1,7 @@
 let currentDocument = null;
 let loadedDocuments = [];
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     setupEventListeners();
     loadDocumentsList();
 });
@@ -299,7 +299,7 @@ function displayConcerns(concerns) {
     const concernsHTML = concerns.map(concern => {
         const severityClass = concern.severity.toLowerCase();
         const emoji = severityClass === 'high' ? '🔴' : severityClass === 'medium' ? '🟡' : '🟢';
-        
+
         return `
             <div class="concern-card ${severityClass}">
                 <div class="concern-header">
@@ -341,8 +341,23 @@ function showToast(message, type = 'info') {
     const toast = document.getElementById('toast');
     toast.textContent = message;
     toast.className = `toast ${type} show`;
-    
+
     setTimeout(() => {
         toast.classList.remove('show');
     }, 3000);
+}
+
+async function loadSampleDocument() {
+    showLoading();
+    try {
+        const response = await fetch('/static/sample-legal-document.txt');
+        const blob = await response.blob();
+        const file = new File([blob], 'sample-legal-document.txt', { type: 'text/plain' });
+
+        document.getElementById('docName').value = 'Sample Document';
+        await handleFileUpload(file);
+    } catch (error) {
+        showToast('Error loading sample document: ' + error.message, 'error');
+        hideLoading();
+    }
 }

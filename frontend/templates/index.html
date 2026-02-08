@@ -33,11 +33,10 @@
                     </div>
                     <input type="text" id="docName" placeholder="Document name (optional)" class="input-field">
                     <div style="margin-top: 10px; text-align: center;">
-                        <a href="{{ url_for('static', filename='sample-legal-document.txt') }}"
-                            download="sample-legal-document.txt"
-                            style="color: #007bff; text-decoration: none; font-size: 0.9em;">
-                            <i class="fas fa-file-alt"></i> Download Sample Document
-                        </a>
+                        <button class="btn btn-secondary" onclick="loadSampleDocument()"
+                            style="width: 100%; font-size: 0.9em; cursor: pointer;">
+                            <i class="fas fa-file-contract"></i> Use Sample Document
+                        </button>
                     </div>
                 </div>
 
